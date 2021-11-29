@@ -1,53 +1,45 @@
 import React from "react";
-import Employee from "./components/Employee";
+
+const employee = {
+  id: "1",
+  name: "Lee",
+  salary: "$11",
+  address: {
+    street: "78",
+    country: "KR",
+    salary: "$1177",
+    zones: {
+      z1: "1z",
+      z2: "2z",
+    },
+  },
+};
 
 function App() {
-  const employeeInfo = [
-    {
-      firstname: "Nick",
-      lastname: "Decker",
-      age: "22",
-      id: "1",
-    },
-    {
-      firstname: "Seok-Hyun",
-      lastname: "Lee",
-      age: "22",
-      id: "2",
-    },
-    {
-      firstname: "John",
-      lastname: "Doe",
-      age: "27",
-      id: "3",
-    },
-    {
-      firstname: "Jane",
-      lastname: "Doe",
-      age: "26",
-      id: "4",
-    },
-  ];
+  const { name, id, address, salary: employeeSalary } = employee;
+  const {
+    street,
+    country,
+    salary: addressSalary,
+    zones: { z1, z2 },
+  } = address;
 
   return (
     <div className="App">
       <header className="App-header">
-        {/* map == for each문, BUT 뭔가를 반환함 */}
-        {employeeInfo.map((e) => {
-          return (
-            // <Employee
-            //   firstname={e.firstname}
-            //   lastname={e.lastname}
-            //   age={e.age}
-            // />
-            <Employee key={e.id} {...e} />
-          );
-        })}
-        {/* <Employee firstname="Jack" lastname="Smith" age="21" />
-        <Employee firstname="Stephanie" lastname="A" age="24" />
-        <Employee firstname="Lee" lastname="B" age="25" />
-        <Employee firstname="George" lastname="C" age="43" />
-        <Employee firstname="Nick" lastname="D" age="45" /> */}
+        <h2>{name}</h2>
+        <h2>{id}</h2>
+        {/* <h2>
+          {address.country} {address.street}
+        </h2> */}
+        <h2>
+          {country} {street}
+        </h2>
+        <h2>{employeeSalary}</h2>
+        <h2>{addressSalary}</h2>
+        <h2>
+          {z1} {z2}
+        </h2>
       </header>
     </div>
   );
