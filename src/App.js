@@ -1,45 +1,33 @@
 import React from "react";
 
-const employee = {
-  id: "1",
-  name: "Lee",
-  salary: "$11",
-  address: {
-    street: "78",
-    country: "KR",
-    salary: "$1177",
-    zones: {
-      z1: "1z",
-      z2: "2z",
-    },
-  },
-};
+const employees = ["Lee", "John", "Jane"];
 
 function App() {
-  const { name, id, address, salary: employeeSalary } = employee;
-  const {
-    street,
-    country,
-    salary: addressSalary,
-    zones: { z1, z2 },
-  } = address;
-
   return (
     <div className="App">
       <header className="App-header">
-        <h2>{name}</h2>
-        <h2>{id}</h2>
-        {/* <h2>
-          {address.country} {address.street}
-        </h2> */}
-        <h2>
-          {country} {street}
-        </h2>
-        <h2>{employeeSalary}</h2>
-        <h2>{addressSalary}</h2>
-        <h2>
-          {z1} {z2}
-        </h2>
+        <h1>{employees[0]}</h1>
+        <h1>{employees[1]}</h1>
+        <h1>{employees[2]}</h1>
+
+        <hr></hr>
+
+        {employees.forEach((e) => {
+          return <h1>{e}</h1>;
+          //forEach는 map과 달리 결과를 반환하지 않음
+        })}
+
+        <hr />
+
+        {employees.map((e) => {
+          return <h1>{e}</h1>;
+        })}
+
+        <hr />
+
+        {employees.map((e) => (
+          <h1>{e}</h1>
+        ))}
       </header>
     </div>
   );
