@@ -1,22 +1,14 @@
 import React, { useState } from "react";
+import Counter from "./components/Counter";
 
 function App() {
-  const name = ["Lee"];
-  const [loggedIn, setloggedIn] = useState(false);
+  const [flag, setflag] = useState(false);
 
   return (
     <div className="App">
       <header className="App-header">
-        {name.map((n) => (
-          <h2>{n}</h2>
-        ))}
-        <hr />
-        {name.length > 0 && <h1>{name[0]}</h1>}
-        <hr />
-        {loggedIn ? <h2>Hello</h2> : <h2>Please Log in </h2>}
-        <button onClick={() => setloggedIn(!loggedIn)}>
-          {loggedIn ? "Log Out" : "Log In"}
-        </button>
+        <button onClick={() => setflag(!flag)}>{flag ? "Hide" : "Show"}</button>
+        {flag && <Counter />}
       </header>
     </div>
   );
